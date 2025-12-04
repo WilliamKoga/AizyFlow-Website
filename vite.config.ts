@@ -7,19 +7,20 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    // Garante que o build use caminhos relativos, evitando tela branca se não estiver na raiz
     base: './', 
     define: {
-      'process.env.API_KEY': JSON.stringify(env.API_KEY || '')
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || env.VITE_API_KEY)
     },
     preview: {
       allowedHosts: true,
-      host: true, // 0.0.0.0
-      port: 3000
+      host: true,
+      port: 3000 // Alinhado com o padrão do Easypanel/Nixpacks
     },
     server: {
       allowedHosts: true,
-      host: true, // 0.0.0.0
-      port: 3000
+      host: true,
+      port: 3000 // Alinhado para desenvolvimento local também
     }
   }
 })
