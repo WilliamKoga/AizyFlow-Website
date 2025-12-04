@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-page text-slate-300 overflow-x-hidden selection:bg-accent-blue selection:text-white font-sans">
+    <div className="min-h-screen h-full w-full bg-page text-slate-300 overflow-x-hidden selection:bg-accent-blue selection:text-white font-sans">
       
       {/* Navigation */}
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4">

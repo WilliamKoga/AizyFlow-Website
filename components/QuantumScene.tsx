@@ -488,18 +488,17 @@ const Bar3D = ({ position, height, color, delay }: { position: [number, number, 
         if (meshRef.current) {
             const t = state.clock.getElapsedTime();
             // Calculate progress (0 to 1)
-            // Slower speed for more emphasis on bounce (approx 1.4s duration to settle)
-            // Increased multiplier from 0.8 to 0.7 makes it slower
-            const rawProgress = Math.min(1, Math.max(0, (t - delay) * 0.7)); 
+            // Slower speed for more emphasis on bounce (approx 1.25s duration to settle)
+            const rawProgress = Math.min(1, Math.max(0, (t - delay) * 0.8)); 
             
-            // Elastic Ease Out implementation
+            // Subtle Elastic Ease Out implementation
             const easeOutElastic = (x: number): number => {
-                const c4 = (2 * Math.PI) / 3; 
+                const c4 = (2 * Math.PI) / 4; // Adjusted period for a more relaxed, subtle bounce
                 return x === 0
                   ? 0
                   : x === 1
                   ? 1
-                  : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
+                  : Math.pow(2, -9 * x) * Math.sin((x * 10 - 0.75) * c4) + 1; // -9 damping
             };
 
             const eased = easeOutElastic(rawProgress);
