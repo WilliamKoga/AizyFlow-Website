@@ -122,14 +122,17 @@ const DataStream = () => {
         if (lineRef.current?.material) {
             const t = state.clock.getElapsedTime();
             
-            // Smoother, slower pulse speed (0.8) for an organic breathing feel
-            const pulse = Math.sin(t * 0.8);
+            // Speed adjustment to 0.8 as requested for organic flow
+            const speed = 0.8;
+            
+            const pulse = Math.sin(t * speed);
             
             // Opacity breathing (0.1 to 0.4)
             lineRef.current.material.opacity = 0.1 + (pulse * 0.5 + 0.5) * 0.3; 
             
-            // Width pulsing (1.5 to 3.5)
-            lineRef.current.material.linewidth = 1.5 + (Math.sin(t * 0.8 + 1) * 0.5 + 0.5) * 2;
+            // Width pulsing: 1.5 to 3.5
+            // Calculation: Base 1.5 + (NormalizedSine * 2) -> 1.5 + (0 to 1) * 2 = 1.5 to 3.5
+            lineRef.current.material.linewidth = 1.5 + (Math.sin(t * speed + 1) * 0.5 + 0.5) * 2;
         }
     });
 
@@ -480,20 +483,30 @@ export const NetworkScene: React.FC = () => {
 
 const Bar3D = ({ position, height, color, delay }: { position: [number, number, number], height: number, color: string, delay: number }) => {
     const meshRef = useRef<THREE.Mesh>(null);
-    const [targetHeight] = useState(height);
     
     useFrame((state) => {
         if (meshRef.current) {
-            // Animate growing up
             const t = state.clock.getElapsedTime();
-            const grow = Math.min(1, Math.max(0, (t - delay) * 1.5)); // Ease in
+            // Calculate progress (0 to 1)
+            // Approx 1.2s duration (1 / 0.8)
+            const rawProgress = Math.min(1, Math.max(0, (t - delay) * 0.8)); 
             
-            // Apply Elastic scale effect
-            const elastic = 1 + Math.sin(grow * Math.PI * 3) * 0.05 * (1 - grow);
-            const currentH = targetHeight * grow; // Simple linear grow for stability + elastic wobble
+            // Elastic Ease Out implementation
+            const easeOutElastic = (x: number): number => {
+                const c4 = (2 * Math.PI) / 3; 
+                return x === 0
+                  ? 0
+                  : x === 1
+                  ? 1
+                  : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
+            };
+
+            const eased = easeOutElastic(rawProgress);
+            const currentH = height * eased;
             
-            meshRef.current.scale.y = currentH > 0.1 ? currentH : 0.1;
-            meshRef.current.position.y = (currentH * 1) / 2; // Keep bottom anchored at y=0
+            // Ensure strictly non-negative scale
+            meshRef.current.scale.y = Math.max(0.01, currentH);
+            meshRef.current.position.y = Math.max(0.005, currentH / 2); // Bottom-aligned
         }
     });
 

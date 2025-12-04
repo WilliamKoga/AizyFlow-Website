@@ -3,25 +3,24 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Load env file based on `mode` in the current working directory.
-  // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
-  // Cast process to any to resolve TS error: Property 'cwd' does not exist on type 'Process'
-  const env = loadEnv(mode, (process as any).cwd(), '');
+  const env = loadEnv(mode, process.cwd(), '');
 
   return {
     plugins: [react()],
+    // Garante que o build use caminhos relativos, evitando tela branca se não estiver na raiz
+    base: './', 
     define: {
-      // Expose API_KEY to the client-side code as process.env.API_KEY
-      'process.env.API_KEY': JSON.stringify(env.API_KEY || '')
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || env.VITE_API_KEY)
     },
     preview: {
-      allowedHosts: true, // Permite qualquer domínio
-      host: true, // Garante que o servidor escute em 0.0.0.0
-      port: 80 // Porta que o Easypanel espera
+      allowedHosts: true,
+      host: true,
+      port: 3000 // Alinhado com o padrão do Easypanel/Nixpacks
     },
     server: {
       allowedHosts: true,
-      host: true
+      host: true,
+      port: 3000 // Alinhado para desenvolvimento local também
     }
   }
 })
