@@ -488,8 +488,9 @@ const Bar3D = ({ position, height, color, delay }: { position: [number, number, 
         if (meshRef.current) {
             const t = state.clock.getElapsedTime();
             // Calculate progress (0 to 1)
-            // Approx 1.2s duration (1 / 0.8)
-            const rawProgress = Math.min(1, Math.max(0, (t - delay) * 0.8)); 
+            // Slower speed for more emphasis on bounce (approx 1.4s duration to settle)
+            // Increased multiplier from 0.8 to 0.7 makes it slower
+            const rawProgress = Math.min(1, Math.max(0, (t - delay) * 0.7)); 
             
             // Elastic Ease Out implementation
             const easeOutElastic = (x: number): number => {
@@ -541,11 +542,11 @@ export const BarChartScene: React.FC = () => {
                 
                 <group position={[-2, 0, 0]}>
                     {/* Month 1 - Low */}
-                    <Bar3D position={[0, 0, 0]} height={1.5} color="#475569" delay={0} />
+                    <Bar3D position={[0, 0, 0]} height={1.5} color="#475569" delay={0.2} />
                     {/* Month 2 - Med */}
-                    <Bar3D position={[1.2, 0, 0]} height={2.5} color="#64748b" delay={0.5} />
+                    <Bar3D position={[1.2, 0, 0]} height={2.5} color="#64748b" delay={0.8} />
                     {/* Month 3 - High (AizyFlow) */}
-                    <Bar3D position={[2.4, 0, 0]} height={5.5} color="#3B82F6" delay={1} />
+                    <Bar3D position={[2.4, 0, 0]} height={5.5} color="#3B82F6" delay={1.4} />
                     
                     {/* Floating Indicators */}
                     <Float speed={2} floatIntensity={0.5}>
