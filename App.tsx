@@ -450,7 +450,7 @@ const App: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">O que nossos clientes dizem</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-page border border-white/10 p-8 rounded-3xl hover:border-white/30 transition-colors">
+                <div className="bg-page border border-white/10 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_10px_40px_-10px_rgba(255,255,255,0.05)]">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/10">
                              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ricardo" alt="Ricardo" />
@@ -463,7 +463,7 @@ const App: React.FC = () => {
                     <p className="text-slate-300 italic leading-relaxed">"A AizyFlow revolucionou a forma como gerenciamos nossos leads. A automação do WhatsApp nos economizou horas diárias de trabalho manual e aumentou nossa conversão."</p>
                 </div>
 
-                <div className="bg-page border border-white/10 p-8 rounded-3xl hover:border-white/30 transition-colors">
+                <div className="bg-page border border-white/10 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_10px_40px_-10px_rgba(255,255,255,0.05)]">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/10">
                             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Juliana" alt="Juliana" />
@@ -476,7 +476,7 @@ const App: React.FC = () => {
                     <p className="text-slate-300 italic leading-relaxed">"A centralização do agendamento com o CRM eliminou quase 100% dos nossos problemas de 'no-show'. A interface é muito intuitiva e o suporte é excelente."</p>
                 </div>
 
-                <div className="bg-page border border-white/10 p-8 rounded-3xl hover:border-white/30 transition-colors">
+                <div className="bg-page border border-white/10 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_10px_40px_-10px_rgba(255,255,255,0.05)]">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/10">
                             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos" alt="Carlos" />
@@ -505,7 +505,7 @@ const App: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Case 1 */}
-                <div className="glass-card rounded-3xl overflow-hidden group hover:border-accent-blue/30 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
+                <div className="glass-card rounded-3xl overflow-hidden group transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:border-accent-cyan/40">
                     <div className="h-48 overflow-hidden relative">
                          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800" alt="Consultório" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                          <div className="absolute inset-0 bg-gradient-to-t from-surface-primary to-transparent opacity-60"></div>
@@ -526,7 +526,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* Case 2 */}
-                <div className="glass-card rounded-3xl overflow-hidden group hover:border-accent-purple/30 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
+                <div className="glass-card rounded-3xl overflow-hidden group transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:border-accent-purple/40">
                     <div className="h-48 overflow-hidden relative">
                          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Marketing Agency" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                          <div className="absolute inset-0 bg-gradient-to-t from-surface-primary to-transparent opacity-60"></div>
@@ -547,7 +547,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* Case 3 */}
-                <div className="glass-card rounded-3xl overflow-hidden group hover:border-accent-blue/30 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
+                <div className="glass-card rounded-3xl overflow-hidden group transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:border-accent-blue/40">
                     <div className="h-48 overflow-hidden relative">
                          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Curso Online" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                          <div className="absolute inset-0 bg-gradient-to-t from-surface-primary to-transparent opacity-60"></div>
