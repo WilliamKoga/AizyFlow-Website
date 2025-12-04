@@ -1,13 +1,12 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
 
 import React, { useState } from 'react';
-import { HeroScene, NetworkScene } from './components/QuantumScene';
-import { WorkflowDiagram, GrowthChart } from './components/Diagrams';
-import { Menu, X, ArrowRight, Zap, MessageSquare, BarChart2, Check, Smartphone, Globe, Calendar, Users, Layout, Mail, Share2 } from 'lucide-react';
+import { HeroScene, NetworkScene, BarChartScene } from './components/QuantumScene';
+import { WorkflowDiagram } from './components/Diagrams';
+import { Menu, X, ArrowRight, Zap, MessageSquare, BarChart2, Check, Smartphone, Globe, Calendar, Users, Layout, Mail, Share2, TrendingUp, Clock, Target, ShieldCheck } from 'lucide-react';
 
 const App: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -143,7 +142,7 @@ const App: React.FC = () => {
             <div className="text-center mb-20">
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Todos os Recursos em <br/>3 Poderosos Pilares</h2>
                 <p className="text-slate-400 max-w-2xl mx-auto">
-                    Substitua dezenas de ferramentas caras por uma única plataforma integrada e eficiente.
+                    Substitua dezenas de ferramentas caras por uma única plataforma integrada e eficiente com a AizyFlow.
                 </p>
             </div>
 
@@ -160,12 +159,12 @@ const App: React.FC = () => {
                     </p>
                     <ul className="space-y-3">
                         {[
-                            "Lista de Contatos Inteligente (Tags, Filtros)",
+                            "Lista de Contatos Inteligente Ilimitado (Tags, Filtros)",
                             "Pipeline de Leads Ilimitado e Personalizável",
-                            "Pagamentos (Checkout, Assinaturas)",
+                            "Pagamentos (Checkout, Assinaturas e Cupons)",
                             "Contratos Ilimitados com Assinatura Digital",
-                            "Calendários e Agendamentos",
-                            "Portal de Clientes (Área de Membros)"
+                            "Calendários e Agendamentos de Serviços/Reuniões",
+                            "Portal de Clientes (Conteúdos e Ferramentas)"
                         ].map((item, i) => (
                             <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
                                 <Check size={16} className="text-accent-blue mt-0.5 min-w-[16px]" />
@@ -180,18 +179,18 @@ const App: React.FC = () => {
                     <div className="w-14 h-14 bg-accent-cyan/10 rounded-2xl flex items-center justify-center mb-6 text-accent-cyan border border-accent-cyan/20">
                         <Layout size={28} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4">Marketing & Conteúdo</h3>
+                    <h3 className="text-xl font-bold text-white mb-4">Marketing & Conteúdo Ilimitado</h3>
                     <p className="text-slate-400 text-sm mb-6 leading-relaxed">
                         Construa sua presença online e nutra leads com ferramentas que integram sites, e-mail e mídias sociais.
                     </p>
                     <ul className="space-y-3">
                         {[
-                            "Email Marketing Ilimitado (Workflows)",
-                            "Planejador de Mídias Sociais (Insta, TikTok)",
-                            "Landing Pages e Funis Ilimitados",
-                            "Sites Institucionais e Blogs",
-                            "Formulários e Pesquisas",
-                            "Webinários e Cursos Online"
+                            "Email Marketing Ilimitado (Workflows e Campanhas)",
+                            "Planejador de Mídias Sociais (Facebook, Instagram, TikTok, etc)",
+                            "Landing Pages e Funil de Páginas Ilimitados",
+                            "Sites Institucionais e Blogs Ilimitados",
+                            "Formulários, Pesquisas e Testes com Coleta de Dados",
+                            "Webinário (Gravado ou Ao Vivo) e Cursos"
                         ].map((item, i) => (
                             <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
                                 <Check size={16} className="text-accent-cyan mt-0.5 min-w-[16px]" />
@@ -206,18 +205,18 @@ const App: React.FC = () => {
                     <div className="w-14 h-14 bg-accent-purple/10 rounded-2xl flex items-center justify-center mb-6 text-accent-purple border border-accent-purple/20">
                         <Zap size={28} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4">Automação & Infraestrutura</h3>
+                    <h3 className="text-xl font-bold text-white mb-4">Automação & Infraestrutura Máxima</h3>
                     <p className="text-slate-400 text-sm mb-6 leading-relaxed">
                         Sua operação funcionando em piloto automático com zero fricção e dados sempre atualizados.
                     </p>
                     <ul className="space-y-3">
                         {[
-                            "Automações Ilimitadas (Gatilhos)",
-                            "Conversas Unificadas (Zap, Insta, Email)",
-                            "Relatórios Avançados de Vendas",
-                            "Integrações Nativas (Stripe, Shopify)",
-                            "Usuários Ilimitados",
-                            "APP para Celular (iOS e Android)"
+                            "Automações Ilimitadas (Gatilhos em Qualquer Ação)",
+                            "Conversas Unificadas (WhatsApp, Instagram, Chat, E-mail)",
+                            "Relatórios Avançados de Vendas, Mídias e Funil",
+                            "Integrações Nativas (QuickBooks, Stripe, Shopify, Google, etc)",
+                            "Usuários Ilimitados e APP para Celular",
+                            "Suporte a Webhooks e API Aberta"
                         ].map((item, i) => (
                             <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
                                 <Check size={16} className="text-accent-purple mt-0.5 min-w-[16px]" />
@@ -231,35 +230,106 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Feature Split Section */}
-      <section className="py-24 md:py-32 bg-surface-secondary/30 border-y border-white/5">
-        <div className="container mx-auto px-6 max-w-7xl space-y-24">
-            
+      {/* Feature Split Section - Accelerated Growth (Redesigned) */}
+      <section className="py-24 md:py-32 bg-surface-secondary/30 border-y border-white/5 relative overflow-hidden">
+        {/* Background Decorative */}
+        <div className="absolute left-0 bottom-0 w-[500px] h-[500px] bg-accent-blue/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-6 max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="order-2 lg:order-1">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 mb-6">
+                
+                {/* Left Content */}
+                <div className="order-2 lg:order-1 relative z-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 mb-6 backdrop-blur">
+                        <TrendingUp size={14} className="text-accent-blue" />
                         <span className="text-xs font-bold text-accent-blue tracking-wide uppercase">Crescimento Acelerado</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-6">Resultados que você pode medir</h3>
-                    <p className="text-slate-400 leading-relaxed mb-8">
-                        Ao unificar o atendimento e automatizar o follow-up de leads, nossos clientes veem um aumento drástico na taxa de conversão e uma redução no tempo de resposta.
+                    
+                    <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        Não é sorte.<br/>
+                        É <span className="text-gradient-cyan">Engenharia de Vendas</span>.
+                    </h3>
+                    
+                    <p className="text-slate-400 leading-relaxed mb-10 text-lg">
+                        Ao remover o atrito entre o marketing e as vendas, transformamos leads frios em clientes fiéis. Nossos dashboards mostram exatamente onde escalar.
                     </p>
-                    <ul className="space-y-4 mb-8">
-                        <li className="flex items-start gap-3">
-                            <div className="w-5 h-5 rounded-full bg-surface-secondary border border-white/10 flex items-center justify-center mt-0.5 text-accent-blue text-xs">✓</div>
-                            <span className="text-slate-300 text-sm">Follow-up automático e instantâneo</span>
-                        </li>
-                         <li className="flex items-start gap-3">
-                            <div className="w-5 h-5 rounded-full bg-surface-secondary border border-white/10 flex items-center justify-center mt-0.5 text-accent-blue text-xs">✓</div>
-                            <span className="text-slate-300 text-sm">Menos tempo gasto em tarefas manuais</span>
-                        </li>
-                    </ul>
+
+                    <div className="space-y-6">
+                        {/* Metric Card 1 */}
+                        <div className="flex items-start gap-4 p-4 rounded-2xl bg-surface-primary/50 border border-white/5 hover:border-accent-blue/30 transition-colors duration-300">
+                            <div className="w-10 h-10 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-blue shrink-0">
+                                <Clock size={20} />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-1">Resposta Instantânea</h4>
+                                <p className="text-sm text-slate-400">Leads atendidos em até 5 minutos convertem 9x mais. Nossos bots garantem resposta em segundos, 24/7.</p>
+                            </div>
+                        </div>
+
+                        {/* Metric Card 2 */}
+                        <div className="flex items-start gap-4 p-4 rounded-2xl bg-surface-primary/50 border border-white/5 hover:border-accent-cyan/30 transition-colors duration-300">
+                            <div className="w-10 h-10 rounded-full bg-accent-cyan/20 flex items-center justify-center text-accent-cyan shrink-0">
+                                <Target size={20} />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-1">Precisão no Follow-up</h4>
+                                <p className="text-sm text-slate-400">Ninguém é esquecido. Crie sequências automáticas de e-mail e WhatsApp que nutrem o lead até a compra.</p>
+                            </div>
+                        </div>
+
+                         {/* Metric Card 3 */}
+                         <div className="flex items-start gap-4 p-4 rounded-2xl bg-surface-primary/50 border border-white/5 hover:border-accent-purple/30 transition-colors duration-300">
+                            <div className="w-10 h-10 rounded-full bg-accent-purple/20 flex items-center justify-center text-accent-purple shrink-0">
+                                <ShieldCheck size={20} />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-1">Previsibilidade de Receita</h4>
+                                <p className="text-sm text-slate-400">Saiba exatamente quanto vai entrar no caixa. Relatórios detalhados de funil e projeção de vendas.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="order-1 lg:order-2 h-64 lg:h-auto">
-                    <GrowthChart />
+
+                {/* Right Visual - 3D Chart Dashboard */}
+                <div className="order-1 lg:order-2 relative">
+                    {/* Glow effect behind chart */}
+                    <div className="absolute inset-0 bg-accent-blue/20 blur-[60px] rounded-full opacity-50"></div>
+                    
+                    <div className="relative h-[500px] w-full bg-surface-primary rounded-3xl border border-white/10 overflow-hidden shadow-2xl ring-1 ring-white/5">
+                        
+                        {/* Fake Browser/Dashboard Header */}
+                        <div className="absolute top-0 left-0 right-0 h-12 bg-white/5 border-b border-white/5 flex items-center px-6 gap-2 z-10 backdrop-blur-md">
+                            <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+                            <div className="ml-4 px-3 py-1 rounded-md bg-black/20 text-[10px] text-slate-500 font-mono border border-white/5">
+                                analytics.aizyflow.com/dashboard
+                            </div>
+                        </div>
+
+                        {/* 3D Scene Container */}
+                        <div className="absolute inset-0 top-12">
+                             <BarChartScene />
+                        </div>
+
+                        {/* Overlay Stats */}
+                        <div className="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-4">
+                            <div className="bg-surface-secondary/90 backdrop-blur p-3 rounded-xl border border-white/10">
+                                <div className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">Taxa de Conversão</div>
+                                <div className="text-xl font-bold text-white flex items-center gap-2">
+                                    12.5% <span className="text-xs text-green-400 bg-green-400/10 px-1.5 py-0.5 rounded">+2.1%</span>
+                                </div>
+                            </div>
+                            <div className="bg-surface-secondary/90 backdrop-blur p-3 rounded-xl border border-white/10">
+                                <div className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">Custo por Lead</div>
+                                <div className="text-xl font-bold text-white flex items-center gap-2">
+                                    ¥450 <span className="text-xs text-green-400 bg-green-400/10 px-1.5 py-0.5 rounded">-15%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
       </section>
 
@@ -372,6 +442,132 @@ const App: React.FC = () => {
                 </div>
             </div>
         </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-surface-secondary/20 border-t border-white/5">
+        <div className="container mx-auto px-6 max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">O que nossos clientes dizem</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-page border border-white/10 p-8 rounded-3xl hover:border-white/30 transition-colors">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/10">
+                             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ricardo" alt="Ricardo" />
+                        </div> 
+                        <div>
+                            <div className="text-white font-medium">Ricardo Mendes</div>
+                            <div className="text-slate-500 text-xs">CEO @ Alpha Marketing</div>
+                        </div>
+                    </div>
+                    <p className="text-slate-300 italic leading-relaxed">"A AizyFlow revolucionou a forma como gerenciamos nossos leads. A automação do WhatsApp nos economizou horas diárias de trabalho manual e aumentou nossa conversão."</p>
+                </div>
+
+                <div className="bg-page border border-white/10 p-8 rounded-3xl hover:border-white/30 transition-colors">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/10">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Juliana" alt="Juliana" />
+                        </div> 
+                        <div>
+                            <div className="text-white font-medium">Juliana Souza</div>
+                            <div className="text-slate-500 text-xs">Diretora @ Clínica Vida</div>
+                        </div>
+                    </div>
+                    <p className="text-slate-300 italic leading-relaxed">"A centralização do agendamento com o CRM eliminou quase 100% dos nossos problemas de 'no-show'. A interface é muito intuitiva e o suporte é excelente."</p>
+                </div>
+
+                <div className="bg-page border border-white/10 p-8 rounded-3xl hover:border-white/30 transition-colors">
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border border-white/10">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos" alt="Carlos" />
+                        </div> 
+                        <div>
+                            <div className="text-white font-medium">Carlos Eduardo</div>
+                            <div className="text-slate-500 text-xs">Fundador @ E-comm X</div>
+                        </div>
+                    </div>
+                    <p className="text-slate-300 italic leading-relaxed">"Migramos de 4 ferramentas diferentes para a AizyFlow. Reduzimos nossos custos em 60% e agora temos todos os dados e métricas em um só lugar."</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Success Cases Section */}
+      <section className="py-24 border-t border-white/5 relative overflow-hidden">
+         {/* Decorative blob */}
+         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent-purple/10 rounded-full blur-[128px] pointer-events-none"></div>
+
+         <div className="container mx-auto px-6 max-w-7xl relative z-10">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Cases de Sucesso</h2>
+                <p className="text-slate-400 max-w-2xl mx-auto">Veja como empresas reais estão transformando seus resultados com a nossa tecnologia.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Case 1 */}
+                <div className="glass-card rounded-3xl overflow-hidden group hover:border-accent-blue/30 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
+                    <div className="h-48 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800" alt="Consultório" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-surface-primary to-transparent opacity-60"></div>
+                         <div className="absolute bottom-4 left-4 bg-white/10 backdrop-blur px-3 py-1 rounded-full border border-white/10">
+                            <span className="text-xs font-bold text-white uppercase tracking-wide">Clínica Bem Estar</span>
+                         </div>
+                    </div>
+                    <div className="p-8 flex flex-col flex-1">
+                        <div className="text-accent-cyan font-bold text-2xl mb-2 flex items-center gap-2"><TrendingUp size={24}/> +45% Receita</div>
+                        <h3 className="text-white font-bold text-lg mb-3">Eliminação de Faltas</h3>
+                        <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                            "Com o sistema de lembretes automáticos via WhatsApp e pagamento antecipado, zeramos o no-show e aumentamos o faturamento em 3 meses."
+                        </p>
+                        <a href="#contact" className="inline-flex items-center gap-2 text-accent-blue text-sm font-bold hover:gap-3 transition-all mt-auto group-hover:text-white">
+                            Ler case completo <ArrowRight size={16} />
+                        </a>
+                    </div>
+                </div>
+
+                {/* Case 2 */}
+                <div className="glass-card rounded-3xl overflow-hidden group hover:border-accent-purple/30 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
+                    <div className="h-48 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Marketing Agency" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-surface-primary to-transparent opacity-60"></div>
+                         <div className="absolute bottom-4 left-4 bg-white/10 backdrop-blur px-3 py-1 rounded-full border border-white/10">
+                            <span className="text-xs font-bold text-white uppercase tracking-wide">Agência Digital Growth</span>
+                         </div>
+                    </div>
+                    <div className="p-8 flex flex-col flex-1">
+                        <div className="text-accent-purple font-bold text-2xl mb-2 flex items-center gap-2"><Users size={24}/> 3x Mais Leads</div>
+                        <h3 className="text-white font-bold text-lg mb-3">Automação de Funil</h3>
+                        <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                            "A centralização dos leads do Facebook e Google Ads permitiu que nossa equipe respondesse em segundos, triplicando nossa taxa de conversão."
+                        </p>
+                        <a href="#contact" className="inline-flex items-center gap-2 text-accent-blue text-sm font-bold hover:gap-3 transition-all mt-auto group-hover:text-white">
+                            Ler case completo <ArrowRight size={16} />
+                        </a>
+                    </div>
+                </div>
+
+                {/* Case 3 */}
+                <div className="glass-card rounded-3xl overflow-hidden group hover:border-accent-blue/30 transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
+                    <div className="h-48 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Curso Online" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-surface-primary to-transparent opacity-60"></div>
+                         <div className="absolute bottom-4 left-4 bg-white/10 backdrop-blur px-3 py-1 rounded-full border border-white/10">
+                            <span className="text-xs font-bold text-white uppercase tracking-wide">English Academy</span>
+                         </div>
+                    </div>
+                    <div className="p-8 flex flex-col flex-1">
+                        <div className="text-accent-blue font-bold text-2xl mb-2 flex items-center gap-2"><Globe size={24}/> Escala Global</div>
+                        <h3 className="text-white font-bold text-lg mb-3">Curso & Área de Membros</h3>
+                        <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                            "Criamos toda a estrutura do nosso curso, desde a landing page até a área de membros, economizando milhares de reais em desenvolvedores."
+                        </p>
+                        <a href="#contact" className="inline-flex items-center gap-2 text-accent-blue text-sm font-bold hover:gap-3 transition-all mt-auto group-hover:text-white">
+                            Ler case completo <ArrowRight size={16} />
+                        </a>
+                    </div>
+                </div>
+            </div>
+         </div>
       </section>
 
       {/* Footer */}
